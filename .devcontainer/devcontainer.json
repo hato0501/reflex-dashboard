@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/python-3
+{
+    "name": "sample-project",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    // ワーク用のディレクトリはプロジェクト名に依存しないように固定
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    // awsとdockerの設定ファイルはローカル環境と同期
+    // "mounts": [
+    //     "source=${localEnv:HOME}/.docker/,target=/home/vscode/.docker/,type=bind,consistency=cached",
+    //     "source=${localEnv:HOME}/.aws/,target=/home/vscode/.aws/config,type=bind,consistency=cached",
+    // ],
+    // "runArgs": [
+    //     "--init"
+    // ],
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            "extensions": [
+				// Backend向け
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"matangover.mypy",
+				"charliermarsh.ruff",
+				"njpwerner.autodocstring",
+				"ms-toolsai.jupyter",
+				"tamasfe.even-better-toml",
+                // docs
+				"hediet.vscode-drawio",
+				"yzhang.markdown-all-in-one",
+				"bierner.github-markdown-preview",
+				"bierner.markdown-mermaid",
+				"jebbs.plantuml",
+                // Dev
+                "ms-vscode.makefile-tools",
+				"humao.rest-client",
+				"github.vscode-github-actions",
+				"eamodio.gitlens",
+				"donjayamanne.githistory",
+				"GitHub.copilot",
+				"GitHub.copilot-chat"
+            ]
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "chmod +x .devcontainer/postCreateCommand.sh && .devcontainer/postCreateCommand.sh",
+    // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode",
+    "features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "ghcr.io/devcontainers/features/aws-cli:1": {}
+    }
+}
