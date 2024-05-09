@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 numpy = "^1.26.2"
 reflex = "^0.4.9"
+plotly = "^5.22.0"
+pandas = "^2.2.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
